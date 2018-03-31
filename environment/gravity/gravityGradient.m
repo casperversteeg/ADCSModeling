@@ -28,7 +28,7 @@ J = sort(J, 'desc');
 % Gravity constant
 mu = 3.986004418e14;
 % Gravity Gradient torque
-Tgg = 3*mu/norm(PosN)*[(J(3)-J(2))*cosd(theta)^2*cosd(psi)*sind(psi);
+Tgg = 3*mu/norm(PosN)^3*[(J(3)-J(2))*cosd(theta)^2*cosd(psi)*sind(psi);
     (J(3)-J(1))*cosd(theta)*sind(theta)*cosd(psi);
     (J(1)-J(2))*cosd(theta)*sind(theta)*sind(psi)];
 Tgg = (0.9 + (1.1-0.9)*randn(3,1)).*Tgg;
