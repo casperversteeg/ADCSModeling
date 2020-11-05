@@ -14,7 +14,7 @@ t   = linspace(0, spd, 5e3);
 or  = t./spd * 2*pi + Flight.arg_perigee; % How far along orbit are we
 r   = [cos(or); sin(or); zeros(1,length(or))] .* (perigee* (1 ...
     - (Flight.eccentricity^2))./(1+Flight.eccentricity * cos(or)));
-r   = rotz(Flight.rightascension)*rotx(Flight.inclination)*r;
+r   = rotMatrix(Flight.rightascension, 3)*rotMatrix(Flight.inclination, 1)*r;
 
 R = 1.5*(Earth.radius);
 

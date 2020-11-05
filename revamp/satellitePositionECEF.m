@@ -22,7 +22,7 @@ TA = TA + Flight.arg_perigee;
 
 r   = [cos(TA); sin(TA); zeros(1,length(TA))] .* (perigee* (1 ...
     - (Flight.eccentricity^2))./(1+Flight.eccentricity * cos(TA)));
-r   = rotz(Flight.rightascension)*rotx(Flight.inclination)*r;
+r   = rotMatrix(Flight.rightascension, 3)*rotMatrix(Flight.inclination, 1)*r;
 
 if nargout == 1
     rx = r;

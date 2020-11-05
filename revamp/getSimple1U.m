@@ -4,7 +4,8 @@ wx_sat  = 0.1;                  % Dimension in x-direction,     [m]
 wy_sat  = 0.1;                  % Dimension in y-direction,     [m]
 wz_sat  = 0.1;                  % Dimension in z-direction,     [m]
 M       = 1;                    % Total satellite mass,         [kg]
-B_sat   = [-0.5; 0.5; 1.5] * 5e-3;     % Sat. permanent magnet vector, [Tesla]
+m_hat   = [0; 0; 1];            % Sat. magnet unit vector       [-]
+m_sat   = m_hat * 5e-3;         % Sat. permanent magnet vector, [A.m2]
 % Vertex coordinates v = [x y z];
 V   = [1  1  1; -1  1  1; -1 -1  1; 1 -1  1; ...
        1  1 -1; -1  1 -1; -1 -1 -1; 1 -1 -1];
@@ -34,6 +35,6 @@ P.FaceAlpha = 0.3;
 close(f);
 
 Sat     = struct('model', P, 'mass_moi', I, 'mass', M,...
-    'perm_mag', B_sat, 'w_max', w_max, 'omega', omega, ...
+    'perm_mag', m_sat, 'w_max', w_max, 'omega', omega, ...
     'attitude_quaternion', rot);
 end

@@ -10,7 +10,7 @@ clear all; close all; clc;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%INITIALIZE VARIABLES%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Settings:
-genVid  = true;
+genVid  = false;
 
 % Model constants:
 N       = 1;                    % Number of orbits to simulate
